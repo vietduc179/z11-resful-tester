@@ -1,0 +1,736 @@
+
+D:\bitbucket\z11-auth\http-z11-auth-test2>java -jar target/http-z11-auth-test2-1.0.RELEASE-jar-with-dependencies.jar test_case/auth_api_test_case.xls 
+Read test case from excel file!
+exportJson, reading sheet: user
+exportJson, reading row: 2
+exportJson, reading row: 3
+exportJson, reading row: 4
+exportJson, reading row: 5
+exportJson, reading row: 6
+exportJson, reading row: 7
+exportJson, reading row: 8
+exportJson, reading row: 9
+exportJson, reading row: 10
+exportJson, reading row: 11
+exportJson, reading row: 12
+exportJson, reading row: 13
+exportJson, reading row: 14
+exportJson, reading row: 15
+exportJson, reading row: 16
+exportJson, reading row: 17
+exportJson, reading row: 18
+exportJson, reading row: 19
+exportJson, reading row: 20
+exportJson, reading row: 21
+exportJson, reading row: 22
+exportJson, reading row: 23
+exportJson, reading row: 24
+exportJson, reading row: 25
+exportJson, reading row: 26
+exportJson, reading row: 27
+exportJson, reading row: 28
+exportJson, reading row: 29
+exportJson, reading row: 30
+exportJson, reading row: 31
+exportJson, reading row: 32
+exportJson, reading row: 33
+exportJson, reading row: 34
+exportJson, reading row: 35
+exportJson, reading row: 36
+exportJson, reading row: 37
+exportJson, reading row: 38
+exportJson, reading row: 39
+exportJson, reading row: 40
+exportJson, reading row: 41
+exportJson, reading row: 42
+exportJson, reading row: 43
+exportJson, reading row: 44
+exportJson, reading row: 45
+exportJson, reading row: 46
+exportJson, reading row: 47
+exportJson, reading row: 48
+exportJson, reading row: 49
+exportJson, reading row: 50
+exportJson, reading row: 51
+exportJson, reading row: 52
+exportJson, reading row: 53
+exportJson, reading row: 54
+exportJson, reading row: 55
+exportJson, reading row: 56
+exportJson, reading row: 57
+exportJson, reading row: 58
+exportJson, reading row: 59
+exportJson, reading row: 60
+exportJson, reading row: 61
+exportJson, reading row: 62
+exportJson, reading sheet: permistion
+exportJson, reading row: 2
+exportJson, reading row: 3
+exportJson, reading row: 4
+exportJson, reading row: 5
+exportJson, reading row: 6
+exportJson, reading row: 7
+exportJson, reading row: 8
+exportJson, reading row: 9
+exportJson, reading row: 10
+exportJson, reading row: 11
+exportJson, reading row: 12
+exportJson, reading row: 13
+exportJson, reading row: 14
+exportJson, reading row: 15
+exportJson, reading row: 16
+exportJson, reading row: 17
+exportJson, reading row: 18
+exportJson, reading row: 19
+exportJson, reading row: 20
+exportJson, reading row: 21
+exportJson, reading row: 22
+exportJson, reading row: 23
+exportJson, reading row: 24
+exportJson, reading row: 25
+exportJson, reading row: 26
+exportJson, reading row: 27
+exportJson, reading row: 28
+exportJson, reading row: 29
+exportJson, reading row: 30
+exportJson, reading row: 31
+exportJson, reading row: 32
+exportJson, reading row: 33
+exportJson, reading row: 34
+exportJson, reading row: 35
+exportJson, reading row: 36
+exportJson, reading row: 37
+exportJson, reading row: 38
+exportJson, reading row: 39
+exportJson, reading row: 40
+exportJson, reading row: 41
+exportJson, reading row: 42
+exportJson, reading row: 43
+exportJson, reading row: 44
+exportJson, reading row: 45
+exportJson, reading row: 46
+exportJson, reading row: 47
+exportJson, reading row: 48
+exportJson, reading row: 49
+exportJson, reading row: 50
+exportJson, reading row: 51
+exportJson, reading row: 52
+exportJson, reading sheet: payment
+exportJson, reading row: 2
+exportJson, reading row: 3
+exportJson, reading row: 4
+exportJson, reading row: 5
+exportJson, reading row: 6
+exportJson, reading row: 7
+exportJson, reading row: 8
+exportJson, reading row: 9
+exportJson, reading row: 10
+exportJson, reading row: 11
+exportJson, reading row: 12
+exportJson, reading row: 13
+exportJson, reading row: 14
+test case for url:http://localhost:8080/http-z11-auth-api/api/
+json_demo_data:{
+    "new_rolename": "Moderators",
+    "name_2": "Viet Duc",
+    "name_1": "Minh Trang",
+    "new_pass": "a12341234@",
+    "appdesc": "Ung dung hoc Toeic",
+    "password_1": "123456abcA@",
+    "password_2": "abc123456",
+    "email_3": "emailext@gmail.com",
+    "admin_email": "admin@z11.com",
+    "pms_update_user": "pms_update_users",
+    "email_2": "ducvv@gmail.com",
+    "email_1": "trangvtm@gmail.com",
+    "new_rolecode": "mods",
+    "user_id_valid": "duc_duc",
+    "email_21": "trang@gmail.com",
+    "password_valid": "abc123456",
+    "new_name": "Vu Thi Minh Trang",
+    "extern_uid": "abchsdk324fhskdfh.ksdf-hkfhskf",
+    "extern_name": "Extern Name",
+    "find_patten_1": "zzzz",
+    "find_patten_2": "d",
+    "admin_user_id": "admin",
+    "find_patten_3": "ducvv5",
+    "admin_balance": "100000000",
+    "find_patten_4": "t",
+    "find_patten_5": "ducvv5@",
+    "find_patten_6": "ducvv@",
+    "find_patten_7": "trang",
+    "email_valid": "duc@duc.com",
+    "admin_password": "123456a@",
+    "userid_21": "ducvv51",
+    "appcode": "toeic-campaign",
+    "admin_name": "Admin Duc Vu",
+    "userid_2": "ducvv5",
+    "userid_1": "trangvtm"
+}
+hasOneShot:false
+
+>>> Test Case 1/125:
+uri: GET users
+msg: 
+time: 338.940192 ms
+
+>>> Test Case 2/125:
+uri: DELETE system/deleteusers
+msg: 
+time: 40.300798 ms
+
+>>> Test Case 3/125:
+uri: GET users
+msg: 
+time: 4.437652 ms
+
+>>> Test Case 4/125:
+uri: POST users
+msg: create user 1
+time: 35.437825 ms
+
+>>> Test Case 5/125:
+uri: PUT me/password
+msg: change pass user 1, not ok
+time: 4.311474 ms
+
+>>> Test Case 6/125:
+uri: POST login
+msg: login user 1
+time: 6.631574 ms
+
+>>> Test Case 7/125:
+uri: POST login
+msg: login user 1
+time: 5.050731 ms
+
+>>> Test Case 8/125:
+uri: POST login
+msg: login user 1
+time: 4.874746 ms
+
+>>> Test Case 9/125:
+uri: POST login
+msg: login user 1
+time: 4.924855 ms
+
+>>> Test Case 10/125:
+uri: DELETE login/all
+msg: login out all from user 1
+time: 3.28364 ms
+
+>>> Test Case 11/125:
+uri: GET me
+msg: get me, user after logout all
+time: 3.284544 ms
+
+>>> Test Case 12/125:
+uri: GET me
+msg: get me, user after logout all
+time: 3.154443 ms
+
+>>> Test Case 13/125:
+uri: POST login
+msg: login user 1
+time: 5.426849 ms
+
+>>> Test Case 14/125:
+uri: PUT me/password
+msg: change pass now ok
+time: 44.052622 ms
+
+>>> Test Case 15/125:
+uri: GET users
+msg: get list user check length
+time: 6.857366 ms
+
+>>> Test Case 16/125:
+uri: GET me
+msg: get me, user 1
+time: 8.252868 ms
+
+>>> Test Case 17/125:
+uri: PUT me/name
+msg: change name user 1 ok
+time: 40.922027 ms
+
+>>> Test Case 18/125:
+uri: DELETE login
+msg: logout user 1
+time: 3.352161 ms
+
+>>> Test Case 19/125:
+uri: GET me
+msg: get me test
+time: 3.166517 ms
+
+>>> Test Case 20/125:
+uri: POST users
+msg: create user 2
+time: 34.202611 ms
+
+>>> Test Case 21/125:
+uri: GET users
+msg: get users check length
+time: 7.386528 ms
+
+>>> Test Case 22/125:
+uri: POST users
+msg: create user 2 with same user id, error
+time: 57.938509 ms
+
+>>> Test Case 23/125:
+uri: POST users
+msg: same email -> error
+time: 44.116316 ms
+
+>>> Test Case 24/125:
+uri: POST users
+msg: create user with conflict data, error
+time: 3.852948 ms
+
+>>> Test Case 25/125:
+uri: POST users
+msg: create user with extern uid ok
+time: 41.395042 ms
+
+>>> Test Case 26/125:
+uri: GET users
+msg: get user now length = 3
+time: 4.085682 ms
+
+>>> Test Case 27/125:
+uri: POST login
+msg: login by extern uid
+time: 4.913082 ms
+
+>>> Test Case 28/125:
+uri: GET me
+msg: get me
+time: 3.778388 ms
+
+>>> Test Case 29/125:
+uri: GET me/id
+msg: get me
+IsNumberValider Content:787
+time: 3.727374 ms
+
+>>> Test Case 30/125:
+uri: POST users
+msg: add user, same extern uid, not ok
+time: 44.492433 ms
+
+>>> Test Case 31/125:
+uri: GET users/trangvtm
+msg: get a user
+time: 4.196768 ms
+
+>>> Test Case 32/125:
+uri: GET users/trangvtm@gmail.com
+msg: get a user by email
+time: 4.132471 ms
+
+>>> Test Case 33/125:
+uri: GET users/1111
+msg: get not found user->404
+time: 4.040404 ms
+
+>>> Test Case 34/125:
+uri: GET me
+msg: Get me and not show password
+time: 4.17292 ms
+
+>>> Test Case 35/125:
+uri: DELETE login
+msg: 
+time: 3.136633 ms
+
+>>> Test Case 36/125:
+uri: DELETE login
+msg: Logout again and get error
+time: 3.421589 ms
+
+>>> Test Case 37/125:
+uri: GET users
+msg: Logout again and get error
+time: 4.474479 ms
+
+>>> Test Case 38/125:
+uri: POST users
+msg: Test valid email by pattern
+time: 7.959459 ms
+
+>>> Test Case 39/125:
+uri: POST users
+msg: Test valid user id by pattern
+time: 7.795247 ms
+
+>>> Test Case 40/125:
+uri: POST users
+msg: Test valid user id by pattern
+time: 6.710963 ms
+
+>>> Test Case 41/125:
+uri: GET valid/userid/duc_duc
+msg: Valid userid
+time: 3.82246 ms
+
+>>> Test Case 42/125:
+uri: GET valid/userid/trangvtm
+msg: Valid userid
+time: 3.700206 ms
+
+>>> Test Case 43/125:
+uri: GET valid/userid/d
+msg: Valid userid
+time: 4.015349 ms
+
+>>> Test Case 44/125:
+uri: GET valid/userid/ducuc@1
+msg: Valid userid
+time: 4.340453 ms
+
+>>> Test Case 45/125:
+uri: GET valid/email/duc@duc.com
+msg: Valid email
+time: 4.232689 ms
+
+>>> Test Case 46/125:
+uri: GET valid/email/abc@def
+msg: Valid email
+time: 3.493734 ms
+
+>>> Test Case 47/125:
+uri: GET valid/email/trangvtm@gmail.com
+msg: Valid email
+time: 4.514626 ms
+
+>>> Test Case 48/125:
+uri: GET valid/password/abc123456
+msg: Valid email
+time: 3.877097 ms
+
+>>> Test Case 49/125:
+uri: GET valid/password/abcsdssaadad
+msg: Valid email
+time: 3.078676 ms
+
+>>> Test Case 50/125:
+uri: GET valid/userid/1dd
+msg: Valid userid
+time: 3.84993 ms
+
+>>> Test Case 51/125:
+uri: GET users/count
+msg: get count
+time: 5.212226 ms
+
+>>> Test Case 52/125:
+uri: GET users/find/zzzz
+msg: Find with not found patten
+time: 10.136175 ms
+
+>>> Test Case 53/125:
+uri: GET users/find/d
+msg: find test
+time: 5.00183 ms
+
+>>> Test Case 54/125:
+uri: GET users
+msg: list all user
+time: 6.427215 ms
+
+>>> Test Case 55/125:
+uri: GET users/find/ducvv5
+msg: find test
+time: 7.337626 ms
+
+>>> Test Case 56/125:
+uri: GET users/find/t
+msg: find test
+time: 5.880243 ms
+
+>>> Test Case 57/125:
+uri: GET users/find/ducvv5@
+msg: find test
+time: 4.830976 ms
+
+>>> Test Case 58/125:
+uri: GET users/find/ducvv@
+msg: find test
+time: 4.332604 ms
+
+>>> Test Case 59/125:
+uri: POST users
+msg: create user 21
+time: 32.019555 ms
+
+>>> Test Case 60/125:
+uri: GET users/find/d
+msg: find test
+time: 4.435841 ms
+
+>>> Test Case 61/125:
+uri: GET users/find/trang
+msg: find test
+time: 4.161147 ms
+
+>>> Test Case 62/125:
+uri: GET users
+msg: get all
+time: 4.080249 ms
+
+>>> Test Case 63/125:
+uri: POST system/initroles
+msg: delete roles and init new role, permission
+time: 120.244036 ms
+
+>>> Test Case 64/125:
+uri: GET permissions
+msg: verify delete all permissions
+time: 3.392913 ms
+
+>>> Test Case 65/125:
+uri: GET roles
+msg: verify delete all role
+time: 3.14599 ms
+
+>>> Test Case 66/125:
+uri: DELETE system/deleteusers
+msg: delete all users
+time: 150.878957 ms
+
+>>> Test Case 67/125:
+uri: GET users
+msg: verify delete all
+time: 3.61146 ms
+
+>>> Test Case 68/125:
+uri: POST system/createadmins
+msg: create admin
+time: 29.472457 ms
+
+>>> Test Case 69/125:
+uri: POST roles
+msg: new role
+time: 3.667002 ms
+
+>>> Test Case 70/125:
+uri: POST users
+msg: create user 1
+time: 28.691543 ms
+
+>>> Test Case 71/125:
+uri: POST login
+msg: login user 1
+time: 4.58496 ms
+
+>>> Test Case 72/125:
+uri: POST roles
+msg: new role
+time: 3.756654 ms
+
+>>> Test Case 73/125:
+uri: POST login
+msg: login admin
+time: 4.373959 ms
+
+>>> Test Case 74/125:
+uri: POST roles
+msg: add new role
+time: 36.652512 ms
+
+>>> Test Case 75/125:
+uri: POST permissions
+msg: add new pms
+time: 32.686667 ms
+
+>>> Test Case 76/125:
+uri: GET roles/1mods
+msg: get role not exsits
+time: 3.274885 ms
+
+>>> Test Case 77/125:
+uri: GET roles/mods
+msg: get new role for test
+time: 3.50611 ms
+
+>>> Test Case 78/125:
+uri: GET roles/mods/permissions
+msg: get permisstion of role
+time: 3.562256 ms
+
+>>> Test Case 79/125:
+uri: GET roles/1mods/permissions
+msg: get role not exsits
+time: 3.315636 ms
+
+>>> Test Case 80/125:
+uri: POST roles/mods/permissions
+msg: add pms to role
+time: 34.648761 ms
+
+>>> Test Case 81/125:
+uri: GET roles/mods/permissions
+msg: get permisstion of role
+time: 3.504299 ms
+
+>>> Test Case 82/125:
+uri: GET roles/mods/permissions
+msg: get permisstion of role
+time: 3.289978 ms
+
+>>> Test Case 83/125:
+uri: GET roles/mods
+msg: get role obj of role
+time: 3.071129 ms
+
+>>> Test Case 84/125:
+uri: POST users
+msg: create user 2
+time: 40.136887 ms
+
+>>> Test Case 85/125:
+uri: GET users
+msg: check list user
+time: 4.10319 ms
+
+>>> Test Case 86/125:
+uri: POST login
+msg: login user 1
+time: 4.907951 ms
+
+>>> Test Case 87/125:
+uri: PUT users/ducvv5/name
+msg: edit name, with user 1
+time: 5.265656 ms
+
+>>> Test Case 88/125:
+uri: PUT users/trangvtm/role
+msg: edit role 1
+time: 41.620834 ms
+
+>>> Test Case 89/125:
+uri: PUT users/ducvv5/name
+msg: edit name, with user 1
+time: 49.450192 ms
+
+>>> Test Case 90/125:
+uri: PUT users/ducvv5/password
+msg: edit name, with user 1
+time: 33.338385 ms
+
+>>> Test Case 91/125:
+uri: POST login
+msg: login user 2 after change pass
+time: 4.949909 ms
+
+>>> Test Case 92/125:
+uri: GET me
+msg: user 2 get me
+time: 3.142067 ms
+
+>>> Test Case 93/125:
+uri: PUT me/name
+msg: user 2 change name it self
+time: 32.256818 ms
+
+>>> Test Case 94/125:
+uri: PUT users/ducvv5/name
+msg: user 2 can't change pass heself by this method
+time: 4.92576 ms
+
+>>> Test Case 95/125:
+uri: DELETE roles/mods/permissions/pms_update_users
+msg: edit role, remove permission
+time: 36.398345 ms
+
+>>> Test Case 96/125:
+uri: PUT users/ducvv5/name
+msg: user 1 now can't change name user 2
+time: 5.840398 ms
+
+>>> Test Case 97/125:
+uri: POST roles/mods/permissions
+msg: add pms to role
+time: 5.888092 ms
+
+>>> Test Case 98/125:
+uri: POST roles/mods/permissions
+msg: add pms to role
+time: 44.839875 ms
+
+>>> Test Case 99/125:
+uri: PUT users/ducvv5/name
+msg: edit name, with user 1
+time: 58.732403 ms
+
+>>> Test Case 100/125:
+uri: DELETE roles/mods
+msg: delete the role
+time: 65.571959 ms
+
+>>> Test Case 101/125:
+uri: PUT users/ducvv5/name
+msg: now user 1 can't change name
+time: 5.830739 ms
+
+>>> Test Case 102/125:
+uri: DELETE login
+msg: user 1 logout
+time: 5.159703 ms
+
+>>> Test Case 103/125:
+uri: POST login
+msg: browser 1 login admin
+time: 6.886647 ms
+
+>>> Test Case 104/125:
+uri: POST login
+msg: browser 1 login admin
+time: 5.384286 ms
+
+>>> Test Case 105/125:
+uri: POST roles
+msg: add new role
+time: 32.990037 ms
+
+>>> Test Case 106/125:
+uri: POST roles
+msg: add new role
+time: 8.231436 ms
+
+>>> Test Case 107/125:
+uri: DELETE login
+msg: user 1 logout
+time: 3.010455 ms
+
+>>> Test Case 108/125:
+uri: DELETE roles/mods
+msg: delete the role by another session
+time: 29.635763 ms
+
+>>> Test Case 109/125:
+uri: DELETE roles/mods
+msg: can't delete the role again
+time: 5.616418 ms
+
+>>> Test Case 110/125:
+uri: POST login
+msg: browser 1 login admin
+time: 7.062028 ms
+
+>>> Test Case 111/125:
+uri: DELETE login/all
+msg: browser 1 logout all admin
+time: 5.161211 ms
+
+>>> Test Case 112/125:
+uri: POST roles
+msg: add new role but session gone
+time: 7.501235 ms
+
+
+
+PASSSS
+Duration time: 2.241577487 s

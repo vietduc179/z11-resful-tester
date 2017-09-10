@@ -1,0 +1,1 @@
+java -jar deploy/http-z11-auth-test2-1.0.RELEASE-jar-with-dependencies.jar test_case/auth_api_test_case_local.xls

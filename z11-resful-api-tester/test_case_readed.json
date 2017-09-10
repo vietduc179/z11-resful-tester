@@ -1,0 +1,5102 @@
+{
+    "headers": [{
+        "name": "Accept",
+        "value": "application/json, text/plain"
+    }],
+    "base_url": "http://localhost:7001/http-z11-auth-api2/api/",
+    "demo_data": {
+        "new_rolename": "Moderators",
+        "product_3_cost": "30",
+        "password_1": "123456abcA@",
+        "new_address1": "dia chi moi",
+        "password_2": "abc123456",
+        "email_3": "emailext@gmail.com",
+        "admin_email": "admin@z11.com",
+        "email_2": "ducvv@gmail.com",
+        "user2_balance_3": "570",
+        "email_1": "trangvtm@gmail.com",
+        "user2_balance_4": "530",
+        "productname_2": "Sản phẩm hai",
+        "new_rolecode": "mods",
+        "productname_1": "Sản phẩm một",
+        "productname_4": "Tên sản phẩm 04",
+        "productname_3": "Sản phẩm 3",
+        "email_21": "trang@gmail.com",
+        "user2_balance_2": "590",
+        "user2_balance_purchase1": "390",
+        "extern_uid": "abchsdk324fhskdfh.ksdf-hkfhskf",
+        "productcode_4": "productcode_4",
+        "productcode_3": "productcode_3",
+        "userid1_new_balance": "250",
+        "find_patten_1": "zzzz",
+        "find_patten_2": "duc",
+        "admin_user_id": "admin",
+        "find_patten_3": "ducvv5",
+        "admin_balance": "1000",
+        "find_patten_4": "tra",
+        "userid1_new_balance_2": "240",
+        "find_patten_5": "ducvv5@",
+        "appcode_1": "tcp",
+        "find_patten_6": "ducvv@",
+        "find_patten_7": "trang",
+        "email_valid": "duc@duc.com",
+        "product_4_cost": "40",
+        "admin_password": "123456a@",
+        "product_1_cost": "10",
+        "transfer_comment_8": "Đến lần thứ 8 chuyển tiền OK",
+        "appname_1": "Toeic Campaign",
+        "transfer_comment_4": "Chuyển tiền lần thứ 4",
+        "transfer_comment_5": "Chuyển tiền năm lần rồi đấy",
+        "transfer_comment_6": "Sáu lần chuyển tiền đã đc chưa",
+        "transfer_comment_7": "Bầy lần chuyển tiền",
+        "userid_21": "ducvv51",
+        "new_name1": "ten moi",
+        "productcode_2": "productcode_2",
+        "productcode_1": "productcode_1",
+        "name_2": "Viết Đức",
+        "name_1": "Minh Trang",
+        "tranfer_amount_2": "400",
+        "new_pass": "a12341234@",
+        "tranfer_amount_1": "200",
+        "transfer_comment_1": "Mình thích thì mình chuyển thôi",
+        "transfer_comment_2": "Chuyển tiền mà cũng phải giải thích à?",
+        "transfer_comment_3": "Lý do chuyển tiền lần ba",
+        "secret": "z11.686868a@",
+        "pms_update_user": "pms_put_users",
+        "user_id_valid": "duc_duc",
+        "password_valid": "abc123456",
+        "new_name": "Vũ Thị Minh Trang",
+        "extern_name": "Ten nick",
+        "new_phonenumber1": "so dien thoai moi",
+        "appdesc_1": "Ứng dụng học tiếng anh toeic",
+        "product_2_cost": "20",
+        "transfer_amount_1_2": "200",
+        "admin_name": "Quản Trị Viên",
+        "userid_2": "ducvv5",
+        "userid_1": "trangvtm"
+    },
+    "browsers": 10,
+    "test_case": [
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_array",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:2",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete roles and init new role, permission",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "OK"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:3",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/initdatabase",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete alls users",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "CLEAN"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:4",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/deletealluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:5",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value_number",
+                    "params": {
+                        "value": 0,
+                        "key": "balance"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{userid_1}",
+                        "key": "userid"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{name_1}",
+                        "key": "name"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:user, row:6",
+            "params": {
+                "password": "{password_1}",
+                "name": "{name_1}",
+                "userid": "{userid_1}",
+                "email": "{email_1}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "change pass user 1, not ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 200
+                }
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 0,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "Unauthorized"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:7",
+            "params": {
+                "password": "{new_pass}",
+                "password_old": "{password_1}"
+            },
+            "uri": "me/password",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 400}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "Unverified account!!"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:8",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "veriry all account",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "VERIFY_SUCCESS"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:9",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/verifyalluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:10",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:11",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 4,
+            "id": "sheet:user, row:12",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 5,
+            "id": "sheet:user, row:13",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "login out all from user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 5,
+            "id": "sheet:user, row:14",
+            "params": {},
+            "uri": "login/all",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me, user after logout all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "Unauthorized"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:15",
+            "params": {},
+            "uri": "me",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me, user after logout all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "Unauthorized"}
+            }],
+            "browser": 4,
+            "id": "sheet:user, row:16",
+            "params": {},
+            "uri": "me",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:17",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "change pass now ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:18",
+            "params": {
+                "password": "{new_pass}",
+                "password_old": "{password_1}"
+            },
+            "uri": "me/password",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list user check length",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {
+                    "compare_type": "GTE",
+                    "length": 0
+                }
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:19",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me, user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_contain_key_value",
+                "params": {
+                    "value": "{name_1}",
+                    "key": "name"
+                }
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:20",
+            "params": {},
+            "uri": "me/info",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me, user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_number",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:21",
+            "params": {},
+            "uri": "me",
+            "oneshot": 0
+        },
+        {
+            "msg": "change name user 1 ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_name}",
+                        "key": "name"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{email_1}",
+                        "key": "email"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:user, row:22",
+            "params": {"name": "{new_name}"},
+            "uri": "me/name",
+            "oneshot": 0
+        },
+        {
+            "msg": "logout user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGOUT"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:23",
+            "params": {},
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 200
+                }
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "Unauthorized"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:24",
+            "params": {},
+            "uri": "me",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{userid_2}",
+                        "key": "userid"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{name_2}",
+                        "key": "name"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:user, row:25",
+            "params": {
+                "password": "{password_2}",
+                "name": "{name_2}",
+                "userid": "{userid_2}",
+                "email": "{email_2}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "get users check length",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": 2}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:26",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 2 with same user id, error",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 500}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:27",
+            "params": {
+                "password": "{password_2}",
+                "name": "s2dkfjslkdjlsjdfl",
+                "userid": "{userid_2}",
+                "email": "ds4jlksjl@fjsdlfkj.com"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "same email -> error",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 500}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:28",
+            "params": {
+                "password": "{password_2}",
+                "name": "TEST error",
+                "userid": "dfdddddfdf",
+                "email": "{email_2}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user with conflict data, error",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:29",
+            "params": {
+                "password": "{password_2}",
+                "name": "TEST error",
+                "userid": "{extern_uid}",
+                "externaluserid": "{extern_uid}",
+                "email": "{email_3}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user with extern uid ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_contain_key_value",
+                "params": {
+                    "value": "{extern_name}",
+                    "key": "name"
+                }
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:30",
+            "params": {
+                "password": "{password_2}",
+                "name": "{extern_name}",
+                "userid": "{userid_2}",
+                "externaluserid": "{extern_uid}",
+                "email": "{email_3}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "get user now length = 3",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": 3}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:31",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "login by extern uid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:32",
+            "params": {
+                "login_id": "{extern_uid}",
+                "password": "{extern_uid}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_number",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:33",
+            "params": {},
+            "uri": "me",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key",
+                    "params": {"key": "balance"}
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{email_3}",
+                        "key": "email"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": 0,
+                        "key": "balance"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:user, row:34",
+            "params": {},
+            "uri": "me/info",
+            "oneshot": 0
+        },
+        {
+            "msg": "get me",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_number",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:35",
+            "params": {},
+            "uri": "me/id",
+            "oneshot": 0
+        },
+        {
+            "msg": "add user, same extern uid, not ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 500}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:36",
+            "params": {
+                "password": "{password_2}",
+                "name": "TEST error",
+                "userid": "hhhhhhhhhhhhhhhhhh",
+                "externaluserid": "{extern_uid}",
+                "email": "wwwwwwwwwwww@gmail.com"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "get a user",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_contain_key_value",
+                "params": {
+                    "value": "{userid_1}",
+                    "key": "userid"
+                }
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:37",
+            "params": {},
+            "uri": "users/{userid_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get a user by email",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_contain_key_value",
+                "params": {
+                    "value": "{userid_1}",
+                    "key": "userid"
+                }
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:38",
+            "params": {},
+            "uri": "users/{email_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get not found user->404",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:39",
+            "params": {},
+            "uri": "users/1111",
+            "oneshot": 0
+        },
+        {
+            "msg": "Get me and not show password",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_except_key",
+                "params": {"key": "password"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:40",
+            "params": {},
+            "uri": "me/info",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGOUT"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:41",
+            "params": {},
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "Logout again and get error",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 417}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:42",
+            "params": {},
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": 3}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:43",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "Test valid email by pattern",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:44",
+            "params": {
+                "password": "{password_2}",
+                "name": "TEST error",
+                "userid": "hhhhhhhhhhhhhhhhhh",
+                "externaluserid": "HJJHJHHHJHJH",
+                "email": "wwwwwwwwwwww"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "Test valid user id by pattern",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:45",
+            "params": {
+                "password": "{password_2}",
+                "name": "TEST error",
+                "userid": "hh",
+                "externaluserid": "HJJHJHHHJHJH",
+                "email": "wwwwwww@wwwww.com"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "Test valid user id by pattern",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:46",
+            "params": {
+                "password": "{password_2}",
+                "name": "TEST error",
+                "userid": "hh@abchjfhjd",
+                "externaluserid": "HJJHJHHHJHJH",
+                "email": "wwwwwww@wwwww.com"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid userid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:47",
+            "params": {},
+            "uri": "valid/userid/{user_id_valid}",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid userid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 409}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:48",
+            "params": {},
+            "uri": "valid/userid/{userid_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid userid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 406}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:49",
+            "params": {},
+            "uri": "valid/userid/d",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid userid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 406}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:50",
+            "params": {},
+            "uri": "valid/userid/ducuc@1",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid email",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:51",
+            "params": {},
+            "uri": "valid/email/{email_valid}",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid email",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 406}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:52",
+            "params": {},
+            "uri": "valid/email/abc@def",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid email",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 409}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:53",
+            "params": {},
+            "uri": "valid/email/{email_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid email",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:54",
+            "params": {},
+            "uri": "valid/password/{password_valid}",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid email",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 406}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:55",
+            "params": {},
+            "uri": "valid/password/abcsdssaadad",
+            "oneshot": 0
+        },
+        {
+            "msg": "Valid userid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:user, row:56",
+            "params": {},
+            "uri": "valid/userid/1dd",
+            "oneshot": 0
+        },
+        {
+            "msg": "get count",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "3"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:57",
+            "params": {},
+            "uri": "users/count",
+            "oneshot": 0
+        },
+        {
+            "msg": "Find with not found patten",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:58",
+            "params": {},
+            "uri": "users/find/{find_patten_1}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:59",
+            "params": {},
+            "uri": "users/find/{find_patten_2}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "list all user",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "3"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:60",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:61",
+            "params": {},
+            "uri": "users/find/{find_patten_3}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:62",
+            "params": {},
+            "uri": "users/find/{find_patten_4}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:63",
+            "params": {},
+            "uri": "users/find/{find_patten_5}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:64",
+            "params": {},
+            "uri": "users/find/{find_patten_6}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 21",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:user, row:65",
+            "params": {
+                "password": "{password_2}",
+                "name": "{name_2}",
+                "userid": "{userid_21}",
+                "email": "{email_21}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:66",
+            "params": {},
+            "uri": "users/find/{find_patten_2}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "find test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:67",
+            "params": {},
+            "uri": "users/find/{find_patten_7}/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 21",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:user, row:68",
+            "params": {
+                "password": "123456a@",
+                "name": "Vũ Viết Đức",
+                "userid": "duc.vu.1",
+                "email": "duc.vu.1@gmail.com"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "veriry all account",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "VERIFY_SUCCESS"}
+            }],
+            "browser": 0,
+            "id": "sheet:user, row:69",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/verifyalluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "login by extern uid",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 4,
+            "id": "sheet:user, row:70",
+            "params": {
+                "login_id": "duc.vu.1",
+                "password": "123456a@"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "check utf-8 name",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_contain_key_value",
+                "params": {
+                    "value": "Vũ Viết Đức",
+                    "key": "name"
+                }
+            }],
+            "browser": 4,
+            "id": "sheet:user, row:71",
+            "params": {},
+            "uri": "me/info",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:72",
+            "params": {
+                "login_id": "{userid_2}",
+                "password": "{password_2}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit info ",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:user, row:73",
+            "params": {
+                "address": "{new_address1}",
+                "name": "{new_name1}",
+                "phonenumber": "{new_phonenumber1}"
+            },
+            "uri": "me",
+            "oneshot": 0
+        },
+        {
+            "msg": "get all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_array",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:2",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete roles and init new role, permission",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "OK"}
+            }],
+            "browser": 0,
+            "id": "sheet:permistion, row:3",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/initdatabase",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete alls users",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "CLEAN"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:4",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/deletealluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:5",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "create admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:6",
+            "params": {
+                "password": "{admin_password}",
+                "balance": "{admin_balance}",
+                "name": "{admin_name}",
+                "secret": "{secret}",
+                "userid": "{admin_user_id}",
+                "email": "{admin_email}"
+            },
+            "uri": "admin/tool/createadmin",
+            "oneshot": 0
+        },
+        {
+            "msg": "new role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:7",
+            "params": {
+                "rolecode": "{new_rolecode}",
+                "roledesc": "{new_rolename}"
+            },
+            "uri": "roles",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:8",
+            "params": {
+                "password": "{password_1}",
+                "name": "{name_1}",
+                "userid": "{userid_1}",
+                "email": "{email_1}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "veriry all account",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "VERIFY_SUCCESS"}
+            }],
+            "browser": 0,
+            "id": "sheet:permistion, row:9",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/verifyalluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:10",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "new role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:11",
+            "params": {
+                "rolecode": "{new_rolecode}",
+                "roledesc": "{new_rolename}"
+            },
+            "uri": "roles",
+            "oneshot": 0
+        },
+        {
+            "msg": "login admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 3,
+            "id": "sheet:permistion, row:12",
+            "params": {
+                "login_id": "{admin_user_id}",
+                "password": "{admin_password}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "add new role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 3,
+            "id": "sheet:permistion, row:13",
+            "params": {
+                "rolecode": "{new_rolecode}",
+                "roledesc": "{new_rolename}"
+            },
+            "uri": "roles",
+            "oneshot": 0
+        },
+        {
+            "msg": "add new pms",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 3,
+            "id": "sheet:permistion, row:14",
+            "params": {
+                "pmsdesc": "Can edit user permission",
+                "pmscode": "{pms_update_user}"
+            },
+            "uri": "permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "get role not exsits",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:15",
+            "params": {},
+            "uri": "roles/1{new_rolecode}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get new role for test",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:16",
+            "params": {},
+            "uri": "roles/{new_rolecode}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get permisstion of role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:17",
+            "params": {},
+            "uri": "roles/{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "get role not exsits",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:18",
+            "params": {},
+            "uri": "roles/1{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "add pms to role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{pms_update_user}",
+                        "key": "pmscode"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_rolecode}",
+                        "key": "rolecode"
+                    }
+                }
+            ],
+            "browser": 3,
+            "id": "sheet:permistion, row:19",
+            "params": {"permission": "{pms_update_user}"},
+            "uri": "roles/{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "get permisstion of role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:20",
+            "params": {},
+            "uri": "roles/{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "get permisstion of role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:permistion, row:21",
+            "params": {},
+            "uri": "roles/{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "get role obj of role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 0,
+            "id": "sheet:permistion, row:22",
+            "params": {},
+            "uri": "roles/{new_rolecode}",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{userid_2}",
+                        "key": "userid"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{name_2}",
+                        "key": "name"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:permistion, row:23",
+            "params": {
+                "password": "{password_2}",
+                "name": "{name_2}",
+                "userid": "{userid_2}",
+                "email": "{email_2}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "check list user",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "3"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:24",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "veriry all account",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "VERIFY_SUCCESS"}
+            }],
+            "browser": 0,
+            "id": "sheet:permistion, row:25",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/verifyalluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:26",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit name, with user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:27",
+            "params": {"name": "{new_name}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit role 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 3,
+            "id": "sheet:permistion, row:28",
+            "params": {"rolecode": "{new_rolecode}"},
+            "uri": "users/{userid_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit name, with user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_name}",
+                        "key": "name"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{email_2}",
+                        "key": "email"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:permistion, row:29",
+            "params": {"name": "{new_name}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit name, with user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_name}",
+                        "key": "name"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{email_2}",
+                        "key": "email"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:permistion, row:30",
+            "params": {"password": "{new_pass}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 2 after change pass",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 2,
+            "id": "sheet:permistion, row:31",
+            "params": {
+                "login_id": "{userid_2}",
+                "password": "{new_pass}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 get me",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_name}",
+                        "key": "name"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{email_2}",
+                        "key": "email"
+                    }
+                }
+            ],
+            "browser": 2,
+            "id": "sheet:permistion, row:32",
+            "params": {},
+            "uri": "me/info",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 change name it self",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_object_contain_key_value",
+                "params": {
+                    "value": "{name_2}",
+                    "key": "name"
+                }
+            }],
+            "browser": 2,
+            "id": "sheet:permistion, row:33",
+            "params": {"name": "{name_2}"},
+            "uri": "me/name",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 can't change pass heself by this method",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:permistion, row:34",
+            "params": {"name": "{name_1}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit role, remove permission",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 3,
+            "id": "sheet:permistion, row:35",
+            "params": {},
+            "uri": "roles/{new_rolecode}/permissions/{pms_update_user}",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 now can't change name user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:36",
+            "params": {"name": "{new_name}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "add pms to role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:37",
+            "params": {"permission": "{pms_update_user}"},
+            "uri": "roles/{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "add pms to role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{pms_update_user}",
+                        "key": "pmscode"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_rolecode}",
+                        "key": "rolecode"
+                    }
+                }
+            ],
+            "browser": 3,
+            "id": "sheet:permistion, row:38",
+            "params": {"permission": "{pms_update_user}"},
+            "uri": "roles/{new_rolecode}/permissions",
+            "oneshot": 0
+        },
+        {
+            "msg": "edit name, with user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{new_name}",
+                        "key": "name"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{email_2}",
+                        "key": "email"
+                    }
+                }
+            ],
+            "browser": 1,
+            "id": "sheet:permistion, row:39",
+            "params": {"name": "{new_name}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete the role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "GONE"}
+            }],
+            "browser": 3,
+            "id": "sheet:permistion, row:40",
+            "params": {},
+            "uri": "roles/{new_rolecode}",
+            "oneshot": 0
+        },
+        {
+            "msg": "now user 1 can't change name",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:41",
+            "params": {"name": "{name_2}"},
+            "uri": "users/{userid_2}",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 logout",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGOUT"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:42",
+            "params": {},
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "browser 1 login admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 202
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:43",
+            "params": {
+                "login_id": "{admin_user_id}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "browser 1 login admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:44",
+            "params": {
+                "login_id": "{admin_user_id}",
+                "password": "{admin_password}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "add new role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:45",
+            "params": {
+                "rolecode": "{new_rolecode}",
+                "roledesc": "{new_rolename}"
+            },
+            "uri": "roles",
+            "oneshot": 0
+        },
+        {
+            "msg": "add new role",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 500}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:46",
+            "params": {
+                "rolecode": "{new_rolecode}",
+                "roledesc": "{new_rolename}"
+            },
+            "uri": "roles",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 logout",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGOUT"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:47",
+            "params": {},
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete the role by another session",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "GONE"}
+            }],
+            "browser": 3,
+            "id": "sheet:permistion, row:48",
+            "params": {},
+            "uri": "roles/{new_rolecode}",
+            "oneshot": 0
+        },
+        {
+            "msg": "can't delete the role again",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 200
+                }
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 3,
+            "id": "sheet:permistion, row:49",
+            "params": {},
+            "uri": "roles/{new_rolecode}",
+            "oneshot": 0
+        },
+        {
+            "msg": "browser 1 login admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:permistion, row:50",
+            "params": {
+                "login_id": "{admin_user_id}",
+                "password": "{admin_password}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "browser 1 logout all admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:permistion, row:51",
+            "params": {},
+            "uri": "login/all",
+            "oneshot": 0
+        },
+        {
+            "msg": "add new role but session gone",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 3,
+            "id": "sheet:permistion, row:52",
+            "params": {
+                "rolecode": "{new_rolecode}",
+                "roledesc": "{new_rolename}"
+            },
+            "uri": "roles",
+            "oneshot": 0
+        },
+        {
+            "msg": "get all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_array",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:2",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete roles and init new role, permission",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "OK"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:3",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/initdatabase",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete alls users",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "CLEAN"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:4",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/deletealluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete all apps",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "CLEAN"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:5",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/deleteallapp",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:6",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:7",
+            "params": {},
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "create admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:8",
+            "params": {
+                "password": "{admin_password}",
+                "balance": "{admin_balance}",
+                "name": "{admin_name}",
+                "secret": "{secret}",
+                "userid": "{admin_user_id}",
+                "email": "{admin_email}"
+            },
+            "uri": "admin/tool/createadmin",
+            "oneshot": 0
+        },
+        {
+            "msg": "login admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:9",
+            "params": {
+                "login_id": "{admin_user_id}",
+                "password": "{admin_password}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "check blance admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{admin_name}",
+                        "key": "name"
+                    }
+                },
+                {
+                    "type": "json_object_contain_key_value",
+                    "params": {
+                        "value": "{admin_balance}",
+                        "key": "balance"
+                    }
+                }
+            ],
+            "browser": 3,
+            "id": "sheet:payment, row:10",
+            "params": {},
+            "uri": "me/info",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_fetch",
+                "params": {"value": "userid_admin"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:11",
+            "params": {},
+            "uri": "me/id",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "{userid_admin}"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:12",
+            "params": {},
+            "uri": "me/id",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:13",
+            "params": {
+                "password": "{password_1}",
+                "name": "{name_1}",
+                "userid": "{userid_1}",
+                "email": "{email_1}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "create user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:14",
+            "params": {
+                "password": "{password_2}",
+                "name": "{name_2}",
+                "userid": "{userid_2}",
+                "email": "{email_2}"
+            },
+            "uri": "users",
+            "oneshot": 0
+        },
+        {
+            "msg": "new app, error",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "Unauthorized"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:15",
+            "params": {
+                "appname": "{appname_1}",
+                "appdesc": "{appdesc_1}",
+                "appcode": "{appcode_1}"
+            },
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:16",
+            "params": {},
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "veriry all account",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "VERIFY_SUCCESS"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:17",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/verifyalluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:18",
+            "params": {
+                "login_id": "{userid_2}",
+                "password": "{password_2}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_number",
+                "params": {}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:19",
+            "params": {},
+            "uri": "me/id",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_fetch",
+                "params": {"value": "user_2_id"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:20",
+            "params": {},
+            "uri": "me/id",
+            "oneshot": 0
+        },
+        {
+            "msg": "login user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 202}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "LOGGED"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:21",
+            "params": {
+                "login_id": "{userid_1}",
+                "password": "{password_1}"
+            },
+            "uri": "login",
+            "oneshot": 0
+        },
+        {
+            "msg": "fetch:user_1_id",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_fetch",
+                "params": {"value": "user_1_id"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:22",
+            "params": {},
+            "uri": "me/id",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:23",
+            "params": {},
+            "uri": "users/{user_1_id}/apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 create new appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:24",
+            "params": {
+                "appname": "{appname_1}",
+                "appdesc": "{appdesc_1}",
+                "appcode": "{appcode_1}"
+            },
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:25",
+            "params": {},
+            "uri": "users/{user_1_id}/apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list app",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_array",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:26",
+            "params": {},
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:27",
+            "params": {},
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:28",
+            "params": {},
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "get the app",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:29",
+            "params": {},
+            "uri": "apps/{appcode_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get the app",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:30",
+            "params": {},
+            "uri": "apps/1{appcode_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_fetch",
+                "params": {"value": "app_token"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:31",
+            "params": {},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "get token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:32",
+            "params": {},
+            "uri": "apps/1{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 get token, not ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:33",
+            "params": {},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "anonymous get token, not ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:34",
+            "params": {},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "anonymous gen new token, not ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:35",
+            "params": {"token": "0"},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 gen new token, not ok",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:36",
+            "params": {"token": "0"},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 gen new token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:37",
+            "params": {"token": "0"},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 gen new token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:38",
+            "params": {"token": "0"},
+            "uri": "apps/1{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "get token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_fetch",
+                "params": {"value": "app_token"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:39",
+            "params": {},
+            "uri": "apps/{appcode_1}/token",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 can add product using token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "obj_fetch_id",
+                "params": {"value": "product_1_id"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:40",
+            "params": {
+                "productcode": "{productcode_1}",
+                "ownid": "{user_2_id}",
+                "cost": "{product_1_cost}",
+                "productname": "{productname_1}",
+                "appcode": "{appcode_1}",
+                "token": "{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can add product using token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "obj_fetch_id",
+                "params": {"value": "product_2_id"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:41",
+            "params": {
+                "productcode": "{productcode_2}",
+                "ownid": "{user_2_id}",
+                "cost": "{product_2_cost}",
+                "productname": "{productname_2}",
+                "appcode": "{appcode_1}",
+                "token": "{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "get product list",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:42",
+            "params": {},
+            "uri": "products/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can't add product using wrong token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:43",
+            "params": {
+                "productcode": "{productcode_3}",
+                "ownid": "{user_2_id}",
+                "cost": "{product_3_cost}",
+                "productname": "{productname_3}",
+                "appcode": "{appcode_1}",
+                "token": "1{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "anonymous can add product using token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "obj_fetch_id",
+                "params": {"value": "product_3_id"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:44",
+            "params": {
+                "productcode": "{productcode_3}",
+                "ownid": "{user_2_id}",
+                "cost": "{product_3_cost}",
+                "productname": "{productname_3}",
+                "appcode": "{appcode_1}",
+                "token": "{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "get product list",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "3"}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:45",
+            "params": {},
+            "uri": "products/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get this product 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:46",
+            "params": {},
+            "uri": "products/{product_1_id}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get this product not found",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:47",
+            "params": {},
+            "uri": "products/1{product_1_id}",
+            "oneshot": 0
+        },
+        {
+            "msg": "anonymous get product 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:48",
+            "params": {},
+            "uri": "products/{product_1_id}",
+            "oneshot": 0
+        },
+        {
+            "msg": "get cost of product 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_number",
+                "params": {}
+            }],
+            "browser": 0,
+            "id": "sheet:payment, row:49",
+            "params": {},
+            "uri": "products/{product_2_id}/cost",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin transfer money to user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:50",
+            "params": {
+                "amount": "{tranfer_amount_1}",
+                "comment": "{transfer_comment_1}",
+                "userid": "{user_1_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:51",
+            "params": {},
+            "uri": "payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:52",
+            "params": {},
+            "uri": "payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:53",
+            "params": {},
+            "uri": "payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_contain_key_value",
+                "params": {
+                    "value": "{transfer_comment_1}",
+                    "key": "info"
+                }
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:54",
+            "params": {},
+            "uri": "payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin transfer money to user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:55",
+            "params": {
+                "amount": "{tranfer_amount_2}",
+                "comment": "{transfer_comment_2}",
+                "userid": "{user_2_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_contain_key_value",
+                "params": {
+                    "value": "{transfer_comment_2}",
+                    "key": "info"
+                }
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:56",
+            "params": {},
+            "uri": "payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:57",
+            "params": {},
+            "uri": "payments",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:58",
+            "params": {},
+            "uri": "me/payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:59",
+            "params": {},
+            "uri": "me/payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin transfer money to user, error amount",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 409}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "invalid"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:60",
+            "params": {
+                "amount": "99999991",
+                "comment": "{transfer_comment_3}",
+                "userid": "{user_1_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin transfer money to user, error amount",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 409}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "low"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:61",
+            "params": {
+                "amount": "2000",
+                "comment": "{transfer_comment_4}",
+                "userid": "{user_1_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin transfer money to user, error amount",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 3,
+            "id": "sheet:payment, row:62",
+            "params": {
+                "amount": "{tranfer_amount_2}",
+                "comment": "{transfer_comment_5}",
+                "userid": "1{user_1_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin transfer money to user, error amount",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:63",
+            "params": {
+                "amount": "{tranfer_amount_2}",
+                "comment": "{transfer_comment_6}",
+                "userid": "{user_1_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:64",
+            "params": {"productid": "{product_1_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:65",
+            "params": {},
+            "uri": "me/payments/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 get current balance and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{user2_balance_purchase1}"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:66",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:67",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 transfer balance to user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:68",
+            "params": {
+                "amount": "{transfer_amount_1_2}",
+                "comment": "{transfer_comment_7}",
+                "userid": "{user_2_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list payments log",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_contain_key_value",
+                "params": {
+                    "value": "{transfer_comment_7}",
+                    "key": "info"
+                }
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:69",
+            "params": {},
+            "uri": "payments",
+            "oneshot": 0
+        },
+        {
+            "msg": "check balance user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:70",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 get current balance and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{user2_balance_2}"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:71",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 302}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:72",
+            "params": {"productid": "{product_1_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:73",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:74",
+            "params": {"productid": "{product_2_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:75",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "check balance after buy value",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{user2_balance_3}"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:76",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:77",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:78",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 302}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:79",
+            "params": {"productid": "{product_1_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 get current balance and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{user2_balance_3}"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:80",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 transfer balance to user 2",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 409}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:81",
+            "params": {
+                "amount": "{transfer_amount_1_2}",
+                "comment": "{transfer_comment_1}",
+                "userid": "{user_2_id}"
+            },
+            "uri": "payments/transfer",
+            "oneshot": 0
+        },
+        {
+            "msg": "check balance user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:82",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 409}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:83",
+            "params": {"productid": "{product_1_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 get current balance and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{user2_balance_3}"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:84",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 2 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 302}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:85",
+            "params": {"productid": "{product_2_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:86",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin get all purchase",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "2"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:87",
+            "params": {},
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin can set balance for user 1",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 3,
+            "id": "sheet:payment, row:88",
+            "params": {"balance": "{userid1_new_balance}"},
+            "uri": "users/{userid_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 check balance",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{userid1_new_balance}"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:89",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user can not change balance it self",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 405}
+            },
+            "method": "PUT",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:90",
+            "params": {"balance": "{user2_balance_3}"},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 check balance",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{userid1_new_balance}"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:91",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 make payment for product via app code",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:92",
+            "params": {"productid": "{product_1_id}"},
+            "uri": "me/purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "anonymous can not get all purchase",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:93",
+            "params": {},
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can not get all purchase",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:94",
+            "params": {},
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin get all purchase",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "3"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:95",
+            "params": {},
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 list all purchase",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:96",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 check balance",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{userid1_new_balance_2}"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:97",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:98",
+            "params": {},
+            "uri": "me/trustapps/{appcode_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:99",
+            "params": {"appcode": "{appcode_1}"},
+            "uri": "me/trustapps",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 302}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:100",
+            "params": {"appcode": "{appcode_1}"},
+            "uri": "me/trustapps",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:101",
+            "params": {},
+            "uri": "me/trustapps/{appcode_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:102",
+            "params": {},
+            "uri": "me/trustapps",
+            "oneshot": 0
+        },
+        {
+            "msg": "anonymous trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 401}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:103",
+            "params": {"appcode": "{appcode_1}"},
+            "uri": "me/trustapps",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 delete trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 410}
+            },
+            "method": "DELETE",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:104",
+            "params": {},
+            "uri": "me/trustapps/{appcode_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 404}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:105",
+            "params": {},
+            "uri": "me/trustapps/{appcode_1}",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 delete trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:106",
+            "params": {},
+            "uri": "me/trustapps",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can add product using token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {
+                    "compare_type": "NE",
+                    "value": 201
+                }
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:107",
+            "params": {
+                "productcode": "{productcode_4}",
+                "ownid": "{user_2_id}",
+                "cost": "{product_4_cost}",
+                "productname": "{productname_4}",
+                "appcode": "1{appcode_1}",
+                "token": "{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "Get all product",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:108",
+            "params": {},
+            "uri": "me/products/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can add product using token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "obj_fetch_id",
+                "params": {"value": "product_4_id"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:109",
+            "params": {
+                "productcode": "{productcode_4}",
+                "ownid": "{user_1_id}",
+                "cost": "{product_4_cost}",
+                "productname": "{productname_4}",
+                "appcode": "{appcode_1}",
+                "token": "{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can add product using token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:110",
+            "params": {
+                "productcode": "1{productcode_4}",
+                "ownid": "",
+                "cost": "{product_4_cost}",
+                "productname": "1{productname_4}",
+                "appcode": "{appcode_1}",
+                "token": "{app_token}"
+            },
+            "uri": "products",
+            "oneshot": 0
+        },
+        {
+            "msg": "Get all product",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "5"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:111",
+            "params": {},
+            "uri": "products/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "Get all product",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:112",
+            "params": {},
+            "uri": "me/products/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "Get all product",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "3"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:113",
+            "params": {},
+            "uri": "me/products/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can make purchase for user 2 using app token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 403}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:114",
+            "params": {
+                "productid": "{product_4_id}",
+                "userid": "{user_2_id}",
+                "token": "{app_token}"
+            },
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 trust appcode",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 2,
+            "id": "sheet:payment, row:115",
+            "params": {"appcode": "{appcode_1}"},
+            "uri": "me/trustapps",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can make purchase for user 2 using app token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 1,
+            "id": "sheet:payment, row:116",
+            "params": {
+                "productid": "{product_4_id}",
+                "userid": "{user_2_id}",
+                "token": "{app_token}"
+            },
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user 1 can make purchase for user 2 using app token",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 302}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [],
+            "browser": 0,
+            "id": "sheet:payment, row:117",
+            "params": {
+                "productid": "{product_4_id}",
+                "userid": "{user_2_id}",
+                "token": "{app_token}"
+            },
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "user2 check balance",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "number_compare",
+                "params": {"value": "{user2_balance_4}"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:118",
+            "params": {},
+            "uri": "me/balance",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "3"}
+            }],
+            "browser": 2,
+            "id": "sheet:payment, row:119",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "get list purchase user 2 and check",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "1"}
+            }],
+            "browser": 1,
+            "id": "sheet:payment, row:120",
+            "params": {},
+            "uri": "me/purchases/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "admin get all purchase",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "4"}
+            }],
+            "browser": 3,
+            "id": "sheet:payment, row:121",
+            "params": {},
+            "uri": "purchases",
+            "oneshot": 0
+        },
+        {
+            "msg": "get all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 1,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_array",
+                "params": {}
+            }],
+            "browser": 1,
+            "id": "sheet:admin, row:2",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete roles and init new role, permission",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "OK"}
+            }],
+            "browser": 0,
+            "id": "sheet:admin, row:3",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/initdatabase",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete all user",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "CLEAN"}
+            }],
+            "browser": 0,
+            "id": "sheet:admin, row:4",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/deletealluser",
+            "oneshot": 0
+        },
+        {
+            "msg": "delete all apps",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "string_contain",
+                "params": {"value": "CLEAN"}
+            }],
+            "browser": 0,
+            "id": "sheet:admin, row:5",
+            "params": {"secret": "{secret}"},
+            "uri": "admin/tool/deleteallapp",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:admin, row:6",
+            "params": {},
+            "uri": "users/0/100",
+            "oneshot": 0
+        },
+        {
+            "msg": "verify delete all",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 200}
+            },
+            "method": "GET",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "json_array_length",
+                "params": {"length": "0"}
+            }],
+            "browser": 0,
+            "id": "sheet:admin, row:7",
+            "params": {},
+            "uri": "apps",
+            "oneshot": 0
+        },
+        {
+            "msg": "create admin",
+            "valid_code": {
+                "type": "number_compare",
+                "params": {"value": 201}
+            },
+            "method": "POST",
+            "stop": 0,
+            "enable": 1,
+            "valid_content": [{
+                "type": "is_json_object",
+                "params": {}
+            }],
+            "browser": 0,
+            "id": "sheet:admin, row:8",
+            "params": {
+                "password": "{admin_password}",
+                "balance": "{admin_balance}",
+                "name": "{admin_name}",
+                "secret": "{secret}",
+                "userid": "{admin_user_id}",
+                "email": "{admin_email}"
+            },
+            "uri": "admin/tool/createadmin",
+            "oneshot": 0
+        }
+    ]
+}
